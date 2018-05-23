@@ -9,8 +9,6 @@ node {
 
     stage('Analyze code') { 
         withMaven {
-            // Maven installation declared in the Jenkins "Global Tool Configuration"
-            maven: 'M3',
             mavenLocalRepo: '.repository') {
                 // Run the maven build
                 sh "mvn clean install"
