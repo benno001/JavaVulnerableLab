@@ -6,17 +6,6 @@ node {
 
         checkout scm
     }
-
-    stage ('Build Java') {
- 
-        sh "/usr/local/bin/maven/bin/mvn --batch-mode -V -U -e clean -Dsurefire.useFile=false"
- 
-        def java = scanForIssues tool: [$class: 'Java']
-        def javadoc = scanForIssues tool: [$class: 'JavaDoc']
-         
-        publishIssues issues:[java]
-        publishIssues issues:[javadoc]
-    }
  
     stage ('Analyze code') {
         sh "/usr/local/bin/maven/bin/mvn -batch-mode -V -U -e checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs spotbugs:spotbugs"
