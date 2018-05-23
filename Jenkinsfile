@@ -8,7 +8,7 @@ node {
     }
  
     stage ('Analyze code') {
-        sh "/usr/local/bin/maven/bin/mvn -batch-mode -V -U -e checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs spotbugs:spotbugs"
+        sh "/usr/local/bin/maven/bin/mvn -batch-mode -V -U -e checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs"
  
         def checkstyle = scanForIssues tool: [$class: 'CheckStyle'], pattern: '**/target/checkstyle-result.xml'
         publishIssues issues:[checkstyle]
