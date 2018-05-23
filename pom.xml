@@ -52,6 +52,7 @@
            <version>3.0.5</version>
            <configuration>
               <findbugsXmlOutput>true</findbugsXmlOutput>
+              <findbugsXmlOutputDirectory>target</findbugsXmlOutputDirectory>
               <findbugsXmlWithMessages>true</findbugsXmlWithMessages>
               <xmlOutput>true</xmlOutput>
            </configuration>
