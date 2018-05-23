@@ -9,9 +9,7 @@ node {
 
     stage ('Build Java') {
  
-        sh "/usr/local/bin/maven/bin/mvn --batch-mode -V -U -e clean test -Dsurefire.useFile=false"
- 
-        junit testResults: '**/target/surefire-reports/TEST-*.xml'
+        sh "/usr/local/bin/maven/bin/mvn --batch-mode -V -U -e clean -Dsurefire.useFile=false"
  
         def java = scanForIssues tool: [$class: 'Java']
         def javadoc = scanForIssues tool: [$class: 'JavaDoc']
