@@ -8,9 +8,8 @@ node {
     }
 
     stage ('Build Java') {
-        def mvnHome = tool 'mvn-default'
  
-        sh "${mvnHome}/bin/mvn --batch-mode -V -U -e clean test -Dsurefire.useFile=false"
+        sh "/usr/local/bin/maven/bin/mvn --batch-mode -V -U -e clean test -Dsurefire.useFile=false"
  
         junit testResults: '**/target/surefire-reports/TEST-*.xml'
  
@@ -22,9 +21,7 @@ node {
     }
  
     stage ('Analyze code') {
-        def mvnHome = tool 'mvn-default'
- 
-        sh "${mvnHome}/bin/mvn -batch-mode -V -U -e checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs spotbugs:spotbugs"
+        sh "/usr/local/bin/maven/bin/mvn -batch-mode -V -U -e checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs spotbugs:spotbugs"
  
         def checkstyle = scanForIssues tool: [$class: 'CheckStyle'], pattern: '**/target/checkstyle-result.xml'
         publishIssues issues:[checkstyle]
