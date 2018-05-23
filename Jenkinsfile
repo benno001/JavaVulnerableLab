@@ -7,10 +7,14 @@ node {
         checkout scm
     }
 
+    stage('Analyze code') { 
+        
+    }
+
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-
+        label 'jenkins-slave'
         app = docker.build("registry:5000/javavulnerablelab")
     }
 
