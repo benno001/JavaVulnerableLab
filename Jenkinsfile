@@ -12,12 +12,15 @@ node {
  
         //def checkstyle = scanForIssues tool: [$class: 'CheckStyle'], pattern: '**/target/checkstyle-result.xml'
         //publishIssues issues:[checkstyle]
-    
+        checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '**/target/checkstyle-result.xml', unHealthy: ''
+        
         //def pmd = scanForIssues tool: [$class: 'Pmd'], pattern: '**/target/pmd.xml'
         //publishIssues issues:[pmd]
-         
+        pmd canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '**/target/pmd.xml', unHealthy: ''
+ 
         //def cpd = scanForIssues tool: [$class: 'Cpd'], pattern: '**/target/cpd.xml'
         //publishIssues issues:[cpd]
+
         findbugs canComputeNew: false, defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', pattern: '**/target/findbugsXml.xml', unHealthy: ''
     }
 
