@@ -9,7 +9,8 @@ node {
  
     stage ('Analyze code') {
         sh "/usr/local/bin/maven/bin/mvn -batch-mode -V -U -e checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs"
- 
+        sh "/usr/local/bin/maven/bin/mvn compile site"
+
         //def checkstyle = scanForIssues tool: [$class: 'CheckStyle'], pattern: '**/target/checkstyle-result.xml'
         //publishIssues issues:[checkstyle]
         checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '**/target/checkstyle-result.xml', unHealthy: ''
