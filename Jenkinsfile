@@ -1,4 +1,8 @@
-podTemplate(label: 'appsec', name: 'appsec', namespace: 'jenkins-ns', containers: [
+podTemplate(label: 'appsec', 
+            name: 'appsec', 
+            namespace: 'jenkins-ns', 
+            podRetention: onFailure(),
+            containers: [
         // Dependency check
         containerTemplate(name: 'dependency-check', 
                           image: 'rtencatexebia/dependency-check', 
@@ -33,12 +37,10 @@ podTemplate(label: 'appsec', name: 'appsec', namespace: 'jenkins-ns', containers
     node('appsec') {
         stage('Check dependencies') {
             container('dependency-check') {
-                    name 'dependency-check'
             }
         }
         stage('SAST') {
             container('zap') {
-                    name 'zap'
             }
         }
     }
