@@ -1,7 +1,7 @@
 podTemplate(label: 'appsec', 
             name: 'appsec', 
             namespace: 'jenkins-ns', 
-            podRetention: onFailure(),
+            podRetention: always(),
             containers: [
         // Dependency check
         containerTemplate(name: 'dependency-check', 
