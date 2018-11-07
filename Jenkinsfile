@@ -33,10 +33,12 @@ podTemplate(label: 'appsec', name: 'appsec', namespace: 'jenkins-ns', containers
     node('appsec') {
         stage('Check dependencies') {
             container('dependency-check') {
+                    name 'dependency-check'
             }
         }
         stage('SAST') {
             container('zap') {
+                    name 'zap'
             }
         }
     }
