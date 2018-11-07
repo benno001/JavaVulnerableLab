@@ -5,7 +5,7 @@ podTemplate(label: 'appsec',
             containers: [
         // Dependency check
         containerTemplate(name: 'dependency-check', 
-                          image: 'rtencatexebia/dependency-check', 
+                          image: 'xebiasecurity/dependencycheck-defectdojo:latest', 
                           alwaysPullImage: true, 
                           envVars: [
                                   secretEnvVar(key: 'DOJO_API_KEY', secretKey: 'dojo-api-key', secretName: 'defect-dojo-secrets'),
