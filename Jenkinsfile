@@ -11,7 +11,7 @@ podTemplate(label: 'appsec',
                                   secretEnvVar(key: 'DOJO_API_KEY', secretKey: 'dojo-api-key', secretName: 'defect-dojo-secrets'),
                                   envVar(key: 'DOJO_URL', value: 'https://defect-dojo.azurewebsites.net'),
                                   envVar(key: 'DOJO_ENGAGEMENT_ID', value: '1'),
-                                  envVar(key: 'SOURCE_REPO', value: 'https://github.com/RiieCco/assessment.git')
+                                  envVar(key: 'SOURCE_REPO', value: 'https://riiecco@dev.azure.com/riiecco/OWASP%20-%20meetup/_git/python-flask-bandit')
                           ],
                           privileged: false, 
                           ttyEnabled: false,),
